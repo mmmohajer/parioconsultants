@@ -277,13 +277,12 @@ PARIO is poised to manage your company’s certification under the ISO 50001 – Ene
 
 <!--END POPUP-->
 
-
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 						   		   
 	//When you click on a link with class of poplight and the href starts with a # 
-	$('a.poplight').click(function() {
+	$('a.poplight[href^=#]').click(function() {
 		var popID = $(this).attr('rel'); //Get Popup Name
 		var popURL = $(this).attr('href'); //Get Popup href to define size
 				
@@ -314,7 +313,7 @@ $(document).ready(function(){
 	
 	
 	//Close Popups and Fade Layer
-	$('.popup_block').on('click', 'a', function() { //When clicking on the close or fade layer...
+	$('a.close, #fade').live('click', function() { //When clicking on the close or fade layer...
 	  	$('#fade , .popup_block').fadeOut(function() {
 			$('#fade, a.close').remove();  
 	}); //fade them both out
